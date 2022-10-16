@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import { ButtonsContainer, Button, Request } from './FeedbackOptions.styled';
+
 export const FeedbackOptions = ({ onHandleFeedback, title }) => (
   <div>
     <Request>{title}</Request>
@@ -15,3 +17,7 @@ export const FeedbackOptions = ({ onHandleFeedback, title }) => (
     </ButtonsContainer>
   </div>
 );
+
+FeedbackOptions.propTypes = {
+  onHandleFeedback: PropTypes.func.isRequired,
+};

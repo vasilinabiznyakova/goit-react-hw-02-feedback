@@ -1,5 +1,7 @@
+import PropTypes from 'prop-types';
 import { Request } from 'components/FeedbackOptions/FeedbackOptions.styled';
 import { FeedbackList } from './Statistics.styled';
+
 export const Statistics = ({
   title,
   good,
@@ -17,19 +19,14 @@ export const Statistics = ({
       <li>Total: {total}</li>
       <li>Positive feedback: {positivePercentage}%</li>
     </FeedbackList>
-
-    {/* {total > 0 ? (
-      <FeedbackList>
-        <li>Good: {this.state.good}</li>
-        <li>Neutral: {this.state.neutral}</li>
-        <li>Bad: {this.state.bad}</li>
-        <li>Total: {total}</li>
-        <li>
-          Positive feedback: {this.countPositiveFeedbackPercentage(total)}%
-        </li>
-      </FeedbackList>
-    ) : (
-      <p>There is no feedback.</p>
-    )} */}
   </div>
 );
+
+Statistics.propTypes = {
+  title: PropTypes.string.isRequired,
+  good: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.string.isRequired,
+};

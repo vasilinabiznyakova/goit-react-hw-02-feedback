@@ -35,10 +35,9 @@ export class App extends Component {
   countPositiveFeedbackPercentage = (total, options) => {
     let positiveFeedbackPercentage = 0;
     if (Number(options.good) > 0) {
-      positiveFeedbackPercentage = (
-        (Number(options.good) / total) *
-        100
-      ).toFixed(2);
+      positiveFeedbackPercentage = Math.round(
+        (Number(options.good) / total) * 100
+      );
     }
 
     return positiveFeedbackPercentage;
@@ -69,6 +68,7 @@ export class App extends Component {
         <FeedbackOptions
           onHandleFeedback={this.handleFeedback}
           title="Please leave feedback:"
+          options={Object.keys(this.state)}
         />
 
         {total > 0 ? (
